@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <metacharset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="widht=device-width">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    <heder>
+     <h1>お金を稼ぎましょう</h1>
+    </heder>
+            <div class="flex">
+            <!-- 画像クリック時、音声とカウント -->
+            <p><a onclick="sound();countUpA();"><img src="icon/coin.png" alt="コイン"></a></p>
+            <p><a onclick="sound();countUpB();"><img src="icon/work.png" alt="コイン"></a></p>
+            <p><a onclick="sound();countUpC();"><img src="icon/factry.png" alt="コイン"></a></p>
+            <p><a onclick="sound();countDown();"><img src="icon/eat.png" alt="コイン"></a></p>
+            <p><a onclick="sound();countUpD();"><img src="icon/p.png" alt="コイン"></a></p>
+            </div>
+
+            <div class="span">
+            <span id="sampleOutputA" style="margin-left: 10px;">0</span>
+            <a>円</a>
+            </div>
+
+
+<!-- 音声ファイルの読み込み  -->
+<audio id="sound-file" preload="auto">
+	<source src="bgm/coin03.mp3" type="audio/mp3">
+    <source src="bgm/coin0.mp3" type="audio/mp3">
+</audio>
+    <script>
+        //カウント部分
+        var $countA = 0;
+        var $countB = 25;
+        var $countC = 100; 
+        var $countD = 100;
+ 
+        function countUpA() {
+        document.getElementById( "sampleOutputA" ).innerHTML = ++$countA;
+    }
+    function countUpB() {
+        document.getElementById( "sampleOutputA" ).innerHTML = $countA+=$countB;
+    }
+    function countUpC() {
+        document.getElementById( "sampleOutputA" ).innerHTML = $countA+=$countC;
+    }
+    function countDown() {
+        document.getElementById( "sampleOutputA" ).innerHTML = $countA-=$countD;
+    }
+    function countUpD() {
+        document.getElementById( "sampleOutputA" ).innerHTML = $countA+=Math.round( Math.random()*200 );
+    }
+        function sound()
+    {
+        // [ID:sound-file]の音声ファイルを再生[play()]する
+        document.getElementById( 'sound-file' ).currentTime=0;
+        document.getElementById( 'sound-file' ).play();
+    }
+
+
+
+</script>
+
+</body>
+</html>
